@@ -10,7 +10,6 @@
     },
   {
       "title": "Step 2 - On teste un truc",
-        "foreground": "/usr/bin/launch.sh",
       "text": "step2.md"
     },
   {
