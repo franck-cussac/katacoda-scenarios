@@ -1,5 +1,5 @@
 test=$(kubectl get pod busybox)
-if $test -eq ""
+if [$test = ""]; then
 	echo done
 fi
 echo fail
