@@ -8,6 +8,10 @@ Kube vient avec un **CLI** qui s'appelle **kubectl**. Voyons un peu ce que ça d
 
 ## Lister les pods
 
-Combien y a-t-il de pod actuellement qui tournent sur le cluster dans le namespace default ?
-
 `kubectl get pods --namespace default`{{execute}}
+
+>>Combien y a-t-il de pod actuellement qui tournent sur le cluster dans le namespace default ? <<
+(*) 0
+( ) 1
+( ) 2
+( ) 3
