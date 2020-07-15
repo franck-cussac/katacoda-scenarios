@@ -1,7 +1,7 @@
-This is your first step.
+Première étape :
 
-## Task
+## Tache
 
-This is an _example_ of creating a scenario and running a **command**
+On va juste faire un __test__ dans lequel vous allez lancer une **commande** toute simple :
 
 `echo 'Hello World'`{{execute}}

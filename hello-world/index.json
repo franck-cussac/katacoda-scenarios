@@ -5,12 +5,22 @@
   "time": "2 minutes",
   "details": {
     "steps": [{
-      "title": "Step 1 - Run Command",
+      "title": "Step 1 - Coucou",
       "text": "step1.md"
+    },
+  {
+      "title": "Step 2 - On teste un truc",
+      "text": "step2.md"
+    },
+  {
+      "title": "Step 3 - Un dernier pour la route",
+      "text": "step3.md",
+        "foreground": "env-init.sh",
+        "verify": "verify.sh"
     }],
     "intro": {
       "text": "intro.md",
-      "credits": ""
+      "credits": "Franck Cussac"
     },
     "finish": {
       "text": "finish.md"
