@@ -1,1 +1,1 @@
-kubectl --generator=run-pod/v1 kusybox --image=busybox
+kubectl run --generator=run-pod/v1 busybox --image=busybox

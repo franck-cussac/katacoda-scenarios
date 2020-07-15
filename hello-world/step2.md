@@ -2,7 +2,7 @@ Bon essayons d'autres trucs en rapport avec kube :
 
 ## Première fois avec kubectl
 
-Kube vient avec un **CLI** qui s'appelle **kubectl**. Voyons un peu ce que ça peut donner :
+Kube vient avec un **CLI** qui s'appelle **kubectl**. Voyons un peu ce que ça donne :
 
 `kubectl version`{{execute}}
 
