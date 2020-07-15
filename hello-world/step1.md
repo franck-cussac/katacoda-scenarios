@@ -1,7 +1,7 @@
 Première étape :
 
-## Tache
+## Créer son cluster
 
-On va juste faire un _test_ dans lequel vous allez lancer une **commande** toute simple :
+Créons notre cluster kube :
 
-`echo 'Hello World'`{{execute}}
+`launch.sh`{{execute}}
