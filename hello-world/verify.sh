@@ -1,5 +1,5 @@
 test=$(kubectl get pod busybox)
 if $test == ""
-	exit 1
+	echo done
 fi
-exit 0
+echo fail
