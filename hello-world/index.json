@@ -1,5 +1,5 @@
 {
-  "title": "Hello World Scenario",
+  "title": "First pod Scenario",
   "description": "On test un scénario Kubernetes",
   "difficulty": "beginner",
   "time": "2 minutes",
@@ -10,6 +10,7 @@
     },
   {
       "title": "Step 2 - On teste un truc",
+        "foreground": "/usr/bin/launch.sh",
       "text": "step2.md"
     },
   {
