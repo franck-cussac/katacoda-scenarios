@@ -4,13 +4,13 @@ Créons un nouveau deployment cactus : `kubectl run test-cactus-front --port=80 
 
 J'ai toujours la possibilité de trouver l'adresse IP du pod créé et de le requêter comme ça. Mais si mon pod crash et se recrée, il me faut retrouver la nouvelle adresse IP. Ce qu'on veut c'est ne pas se soucier de l'adresse IP de notre pod. Pour exposer un ou plusieurs pods, on utilise un service.
 
-`kubectl expose deployment test-cactus-front --type=clusterIP --name=my-service --dry-run -o yaml`{{execute}}
+`kubectl expose deployment test-cactus-front --type=ClusterIP --name=my-service --dry-run -o yaml`{{execute}}
 
 Que fait cette commande ? Vous verrez qu'à la fin j'ai ajouté les options `--dry-run` et `-o yaml`. Cela me permet de simuler l'exécution de ma commande et de récupérer l'output sous forme d'un fichier yaml. Le même yaml qui nous sert à créer nos ressources depuis du code.
 
 Cette commande permet de créer un service qui exposera le port de nos pods définis dans notre deployment `test-cactus-front`. Le yaml que l'on récupère est la définition as code de ce service. On peut le récupérer dans un fichier et créer notre service depuis ce fichier comme ça :
 
-`kubectl expose deployment test-cactus-front --type=clusterIP --name=my-service --dry-run -o yaml > service.yaml`{{execute}}
+`kubectl expose deployment test-cactus-front --type=ClusterIP --name=my-service --dry-run -o yaml > service.yaml`{{execute}}
 `kubectl apply -f service.yaml`{{execute}}
 
 On peut récupérer l'adresse IP de notre service : `kubectl get svc`{{execute}} dans la colonne `CLUSTER-IP` et l'utiliser pour requêter nos pods. Peu importe combien de fois nos pods redémarreront, notre service nous permettra toujours de les joindre de la même façon.
