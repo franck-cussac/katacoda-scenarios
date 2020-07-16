@@ -1,26 +1,32 @@
 {
-  "title": "First pod Scenario",
-  "description": "On test un scénario Kubernetes",
+  "title": "Kubernetes the dev way",
+  "description": "Découvrez les ressources de base de kubernetes pour déployer vos applications.",
   "difficulty": "beginner",
-  "time": "2 minutes",
+  "time": "120 minutes",
   "details": {
     "steps": [{
-      "title": "Step 1 - Coucou",
-      "text": "step1.md"
+      "title": "Step 1 - deployments",
+      "text": "deployments/step1.md"
     },
   {
-      "title": "Step 2 - On teste un truc",
-      "text": "step2.md"
+      "title": "Step 2 - deployments",
+      "text": "deployments/step2.md"
     },
   {
-      "title": "Step 3 - Un dernier pour la route",
-      "text": "step3.md",
-        "foreground": "env-init.sh",
-        "verify": "verify.sh"
+      "title": "Step 3 - deployments",
+      "text": "deployments/step3.md"
+    },
+  {
+      "title": "Step 4 - services",
+      "text": "services/step4.md"
+    },
+  {
+      "title": "Step 5 - services",
+      "text": "services/step5.md"
     }],
     "intro": {
       "text": "intro.md",
-      "credits": "Franck Cussac"
+      "credits": "Franck Cussac, Giom Lhermenier"
     },
     "finish": {
       "text": "finish.md"

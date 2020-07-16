@@ -1,1 +1,1 @@
-C'éait bien non ?
+Merci d'avoir suivis ce hands-on !
