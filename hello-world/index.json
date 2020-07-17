@@ -19,17 +19,33 @@
         "text": "deployments/step2.md"
       },
       {
+        "title": "Step 1 - services",
+        "text": "services/step1.md"
+      },
+      {
+        "title": "Step 2 - services",
+        "text": "services/step2.md"
+      },
+      {
         "title": "Step 3 - services",
         "text": "services/step3.md"
       },
       {
-        "title": "Step 4 - services",
-        "text": "services/step4.md"
+        "title": "Step 1 - configmaps",
+        "text": "configmaps/step1.md"
+      },
+      {
+        "title": "Step 1 - statefull",
+        "text": "statefull/step1.md"
+      },
+      {
+        "title": "Step 1 - ingress",
+        "text": "ingress/step1.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "Franck Cussac, Guillaume Lhermenier"
+      "credits": "Franck Cussac, Giom Lhermenier"
     },
     "finish": {
       "text": "finish.md"

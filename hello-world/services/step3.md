@@ -1,39 +1,43 @@
-## On teste l'expose avec 1 pod
+## Déployer toute une application front, back, BDD
 
-Créons un nouveau deployment cactus : `kubectl run test-cactus-front --port=80 --labels='app=test' --image=scauglog/hello-front`{{execute}}
+### Déployer un backend et l'exposer au frontend
 
-J'ai toujours la possibilité de trouver l'adresse IP du pod créé et de le requêter comme ça. Mais si mon pod crash et se recrée, il me faut retrouver la nouvelle adresse IP. Ce qu'on veut c'est ne pas se soucier de l'adresse IP de notre pod. Pour exposer un ou plusieurs pods, on utilise un service.
+Créez un deployment avec les caractéristiques suivantes :
+* **deploy name** : cactus-back
+* **image** : scauglog/hello-back:node-alpine
+* **replicas** : 1
+* **containerPort** : 8080
+* **labels** : app=back
 
-`kubectl expose deployment test-cactus-front --type=ClusterIP --name=my-service --dry-run -o yaml`{{execute}}
-
-Que fait cette commande ? Vous verrez qu'à la fin j'ai ajouté les options `--dry-run` et `-o yaml`. Cela me permet de simuler l'exécution de ma commande et de récupérer l'output sous forme d'un fichier yaml. Le même yaml qui nous sert à créer nos ressources depuis du code.
-
-Cette commande permet de créer un service qui exposera le port de nos pods définis dans notre deployment `test-cactus-front`. Le yaml que l'on récupère est la définition as code de ce service. On peut le récupérer dans un fichier et créer notre service depuis ce fichier comme ça :
-
-`kubectl expose deployment test-cactus-front --type=ClusterIP --name=my-service --dry-run -o yaml > service.yaml`{{execute}}
-
-`kubectl apply -f service.yaml`{{execute}}
-
-On peut récupérer l'adresse IP de notre service : `kubectl get svc`{{execute}} dans la colonne `CLUSTER-IP` et l'utiliser pour requêter nos pods. Peu importe combien de fois nos pods redémarreront, notre service nous permettra toujours de les joindre de la même façon. C'est très pratique lorsque l'on veut que qu'une application déployé dans des pods communique à une autre application déployée dans d'autres pods.
-
-Faites le ménage et cette fois-ci on va exposer notre `cactus-front`
-`kubectl delete -f service.yaml`{{execute}}
-`kubectl delete deploy test-cactus-front`{{execute}}
-
-## ClusterIP
-
-Créez un service pour exposer les pods de votre deployment `cactus-front` :
-* **type** : clusterIP
-* **port** : 80
-* **targetPort** : 80
+Exposez votre deployment pour que vos pods de frontend puissent y accéder :
+* **type** : le plus adapté
+* **port** : 8080
+* **targetPort** : 8080
 * **selector** : celui qui correspond à vos pods
 
->>Combien de clusterIP crée notre service pour exposer nos 3 pods ?<<
-(*) 1
-( ) 3
+>>Quel est l'état de votre pod ?<<
+( ) running
+(*) error backoff
+( ) pending
 
->>Est-ce que je peux utiliser l'IP de notre clusterIP pour accéder à notre cactus depuis les internets mondiaux ? (indice : essayez)<<
+En cas d'erreur comme ici, vous pouvez récupérer les logs d'un pod pour comprendre ce qu'il se passe avec la commande `kubectl logs deploy/cactus-back`{{execute}}
+
+>>Qu'elle est le problème ?<<
+( ) le backend n'arrive pas à contacter le frontend
+( ) l'image docker n'existe pas
+(*) le backend n'arrive pas à contacter redis
+
+### Déployer une BDD et l'exposer au backend
+
+Créez un deployment avec les caractéristiques suivantes :
+* **deploy name** : redis
+* **image** : redis:alpine3.12
+* **replicas** : 1
+* **containerPort** : 6379
+* **labels** : app=bdd
+
+Exposez votre deployment pour que vos pods de backend puissent y accéder puis redéployez votre deployment `cactus-back`.
+
+>>Le problème du backend est-il réglé ?<<
 ( ) oui
 (*) non
-
-Supprimez le service que vous avez créé pour `cactus-front`.
