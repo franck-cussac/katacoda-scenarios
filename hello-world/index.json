@@ -4,29 +4,32 @@
   "difficulty": "beginner",
   "time": "120 minutes",
   "details": {
-    "steps": [{
-      "title": "Step 1 - deployments",
-      "text": "deployments/step1.md"
-    },
-  {
-      "title": "Step 2 - deployments",
-      "text": "deployments/step2.md"
-    },
-  {
-      "title": "Step 3 - deployments",
-      "text": "deployments/step3.md"
-    },
-  {
-      "title": "Step 4 - services",
-      "text": "services/step4.md"
-    },
-  {
-      "title": "Step 5 - services",
-      "text": "services/step5.md"
-    }],
+    "steps": [
+      {
+        "title": "Step 0 - Configuration",
+        "code": "foreground-init.sh",
+        "text": "step0.md"
+      },
+      {
+        "title": "Step 1 - deployments",
+        "text": "deployments/step1.md"
+      },
+      {
+        "title": "Step 2 - deployments",
+        "text": "deployments/step2.md"
+      },
+      {
+        "title": "Step 3 - services",
+        "text": "services/step3.md"
+      },
+      {
+        "title": "Step 4 - services",
+        "text": "services/step4.md"
+      }
+    ],
     "intro": {
       "text": "intro.md",
-      "credits": "Franck Cussac, Giom Lhermenier"
+      "credits": "Franck Cussac, Guillaume Lhermenier"
     },
     "finish": {
       "text": "finish.md"
@@ -34,9 +37,11 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\n",
+    "showdashboard": true,
+    "dashboards": [{"name": "cactus-front", "port": 80}]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-cluster-running:1.18"
   }
 }
