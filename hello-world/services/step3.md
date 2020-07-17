@@ -35,3 +35,5 @@ Créez un service pour exposer les pods de votre deployment `cactus-front` :
 >>Est-ce que je peux utiliser l'IP de notre clusterIP pour accéder à notre cactus depuis les internets mondiaux ? (indice : essayez)<<
 ( ) oui
 (*) non
+
+Supprimez le service que vous avez créé pour `cactus-front`.

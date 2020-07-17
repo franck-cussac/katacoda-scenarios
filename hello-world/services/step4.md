@@ -12,6 +12,8 @@ Créez un service pour exposer les pods de votre deployment `cactus-front` :
 
 Récupérez l'adresse IP d'un des nodes et essayez d'ouvrir votre cactus-front depuis un navigateur web.
 
+Supprimez le service que vous venez de créer pour `cactus-front`
+
 ## LoadBalancer
 
 Créez un service pour exposer les pods de votre deployment `cactus-front` :
