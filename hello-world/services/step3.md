@@ -11,9 +11,10 @@ Que fait cette commande ? Vous verrez qu'à la fin j'ai ajouté les options `--d
 Cette commande permet de créer un service qui exposera le port de nos pods définis dans notre deployment `test-cactus-front`. Le yaml que l'on récupère est la définition as code de ce service. On peut le récupérer dans un fichier et créer notre service depuis ce fichier comme ça :
 
 `kubectl expose deployment test-cactus-front --type=ClusterIP --name=my-service --dry-run -o yaml > service.yaml`{{execute}}
+
 `kubectl apply -f service.yaml`{{execute}}
 
-On peut récupérer l'adresse IP de notre service : `kubectl get svc`{{execute}} dans la colonne `CLUSTER-IP` et l'utiliser pour requêter nos pods. Peu importe combien de fois nos pods redémarreront, notre service nous permettra toujours de les joindre de la même façon.
+On peut récupérer l'adresse IP de notre service : `kubectl get svc`{{execute}} dans la colonne `CLUSTER-IP` et l'utiliser pour requêter nos pods. Peu importe combien de fois nos pods redémarreront, notre service nous permettra toujours de les joindre de la même façon. C'est très pratique lorsque l'on veut que qu'une application déployé dans des pods communique à une autre application déployée dans d'autres pods.
 
 Faites le ménage et cette fois-ci on va exposer notre `cactus-front`
 `kubectl delete -f service.yaml`{{execute}}
@@ -22,10 +23,10 @@ Faites le ménage et cette fois-ci on va exposer notre `cactus-front`
 ## ClusterIP
 
 Créez un service pour exposer les pods de votre deployment `cactus-front` :
-* type : clusterIP
-* port : 80
-* targetPort : 80
-* selector : celui qui correspond à vos pods
+* **type** : clusterIP
+* **port** : 80
+* **targetPort** : 80
+* **selector** : celui qui correspond à vos pods
 
 >>Combien de clusterIP crée notre service pour exposer nos 3 pods ?<<
 (*) 1
